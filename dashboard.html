@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./assets/css/jquery-ui.css">
+        <link rel="stylesheet" href="./assets/css/select2.min.css">
+        <link rel="stylesheet" href="./assets/css/style.css?v=2">
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <nav class="navbar navbar-expand-xl bg-light">
+                    <div class="container gap-3">
+                        <!-- Left: Logo -->
+                        <a class="navbar-brand order-1" href="./dashboard.html">
+                            <img src="./assets/img/logo.png" alt="Logo">
+                        </a>
+                        <!-- Navbar Toggle for Mobile -->
+                        <button class="navbar-toggler order-xl-2 order-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- Center: Menu Items -->
+                        <div class="collapse navbar-collapse justify-content-center order-xl-2 order-4" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./dashboard.html">Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./member-card.html">Member Card</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./all-buchungen.html">Alle Buchungen</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./karte-sperren.html">Karte sperren</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./tagesabschluss.html">Tagesabschluss</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Right: User Info -->
+                        <div class="d-flex align-items-center gap-2 ms-xl-0 ms-auto order-xl-3 order-2">
+                            <span onclick="showPopup('settingsPopup')">
+                                <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 18.3672C15.933 18.3672 17.5 16.8002 17.5 14.8672C17.5 12.9342 15.933 11.3672 14 11.3672C12.067 11.3672 10.5 12.9342 10.5 14.8672C10.5 16.8002 12.067 18.3672 14 18.3672Z"
+                                        stroke="#111111" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path
+                                        d="M2.33325 15.8942V13.8409C2.33325 12.6275 3.32492 11.6242 4.54992 11.6242C6.66159 11.6242 7.52492 10.1309 6.46325 8.29919C5.85659 7.24919 6.21825 5.88419 7.27992 5.27752L9.29825 4.12252C10.2199 3.57419 11.4099 3.90085 11.9583 4.82252L12.0866 5.04419C13.1366 6.87585 14.8633 6.87585 15.9249 5.04419L16.0533 4.82252C16.6016 3.90085 17.7916 3.57419 18.7133 4.12252L20.7316 5.27752C21.7933 5.88419 22.1549 7.24919 21.5483 8.29919C20.4866 10.1309 21.3499 11.6242 23.4616 11.6242C24.6749 11.6242 25.6783 12.6159 25.6783 13.8409L25.6783 15.8942C25.6783 17.1075 24.6866 18.1109 23.4616 18.1109C21.3499 18.1109 20.4866 19.6042 21.5483 21.4359C22.1549 22.4975 21.7933 23.8509 20.7316 24.4575L18.7133 25.6125C17.7916 26.1609 16.6016 25.8342 16.0533 24.9125L15.9249 24.6909C14.8749 22.8592 13.1483 22.8592 12.0866 24.6909L11.9583 24.9125C11.4099 25.8342 10.2199 26.1609 9.29825 25.6125L7.27992 24.4575C6.21825 23.8509 5.85659 22.4859 6.46325 21.4359C7.52492 19.6042 6.66159 18.1109 4.54992 18.1109C3.32492 18.1109 2.33325 17.1075 2.33325 15.8942Z"
+                                        stroke="#111111" stroke-width="1.5" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <a href="#" class="user-info d-flex align-items-center ms-1 gap-2">
+                                <img src="./assets/img/user-img.png" alt="User" class="ui-img flex-shrink-0">
+                                <div class="ms-1 d-lg-block d-none">
+                                    <strong class="text-dark fw-semibold ui-name">John Doe</strong><br>
+                                    <small class="text-secondary ui-email">john@xyz.com</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
+        <main class="pb-5 mt-3 d-flex flex-column gap-3">
+            <section class="mt-2 mb-1">
+                <div class="container">
+                    <div class="d-flex flex-column gap-1">
+                        <h2 class="mb-0 fw-semibold text-final page-title">Dashboard</h2>
+                        <p class="mb-0 text-secondary page-desc">Ihre Clubübersicht und Aktivitäten hier.</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-6 col-12 pb-4">
+                            <div class="d-box h-100 d-flex flex-column gap-4 justify-content-between">
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-0 db-text">Spiele heute</p>
+                                    <span class="db-svg">
+                                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="50" height="50" rx="25" fill="white" />
+                                            <path
+                                                d="M25 35C30.523 35 35 30.523 35 25C35 19.477 30.523 15 25 15C19.477 15 15 19.477 15 25C15 30.523 19.477 35 25 35Z"
+                                                stroke="#111111" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M25.0081 23.508C24.6102 23.508 24.2287 23.666 23.9474 23.9473C23.6661 24.2286 23.5081 24.6102 23.5081 25.008C23.5081 25.4058 23.6661 25.7874 23.9474 26.0687C24.2287 26.35 24.6102 26.508 25.0081 26.508C25.4059 26.508 25.7874 26.35 26.0687 26.0687C26.35 25.7874 26.5081 25.4058 26.5081 25.008C26.5081 24.6102 26.35 24.2286 26.0687 23.9473C25.7874 23.666 25.4059 23.508 25.0081 23.508ZM25.0081 23.508V20M28.0151 28.02L26.0661 26.072"
+                                                stroke="#111111" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-end gap-2">
+                                    <span class="db-number lh-1">3</span>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="db-pill dbp-success">
+                                            <span class="db-arrow">
+                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.4929 9.6184C10.4258 9.6167 10.3597 9.6015 10.2985 9.57371C10.2374 9.54591 10.1825 9.50609 10.1371 9.45662C10.0917 9.40715 10.0568 9.34904 10.0343 9.28576C10.0118 9.22248 10.0024 9.15532 10.0064 9.0883C10.0105 9.02128 10.028 8.95576 10.058 8.89565C10.0879 8.83555 10.1296 8.78209 10.1807 8.73847C10.2317 8.69484 10.291 8.66194 10.355 8.64174C10.4191 8.62153 10.4865 8.61443 10.5534 8.62085L14.3177 8.84908C14.4499 8.85718 14.5736 8.91744 14.6614 9.01663C14.7493 9.11582 14.7942 9.24583 14.7862 9.37809L14.558 13.1424C14.5563 13.2095 14.5411 13.2756 14.5133 13.3368C14.4855 13.3979 14.4457 13.4528 14.3962 13.4982C14.3467 13.5436 14.2886 13.5785 14.2254 13.601C14.1621 13.6234 14.0949 13.6329 14.0279 13.6289C13.9609 13.6248 13.8954 13.6073 13.8353 13.5773C13.7751 13.5474 13.7217 13.5057 13.6781 13.4546C13.6344 13.4036 13.6015 13.3443 13.5813 13.2803C13.5611 13.2162 13.554 13.1488 13.5604 13.0819L13.7156 10.5222L8.87967 14.8053C8.7804 14.8932 8.65026 14.9381 8.5179 14.9301C8.38553 14.9221 8.26178 14.8618 8.17386 14.7625C8.08593 14.6632 8.04105 14.5331 8.04907 14.4007C8.0571 14.2684 8.11738 14.1446 8.21665 14.0567L13.0526 9.77359L10.4929 9.6184Z"
+                                                        fill="#D41515" />
+                                                </svg>
+                                            </span>
+                                            <span class="dbp-text">1.5</span>
+                                        </div>
+                                        <span class="lh-sm db-small">Durchschnittliches Par heute</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-12 pb-4">
+                            <div class="d-box h-100 d-flex flex-column gap-4 justify-content-between">
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-0 db-text">Gesamtanzahl Spiele im Club</p>
+                                    <span class="db-svg">
+                                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="50" height="50" rx="25" fill="#F1F1F1" />
+                                            <g clip-path="url(#clip0_32_700)">
+                                                <path
+                                                    d="M27.25 20.4997C27.25 20.3007 27.329 20.11 27.4696 19.9693C27.6103 19.8287 27.8011 19.7497 28 19.7497H36.25C36.4489 19.7497 36.6396 19.8287 36.7803 19.9693C36.9209 20.11 37 20.3007 37 20.4997C37 20.6986 36.9209 20.8893 36.7803 21.03C36.6396 21.1706 36.4489 21.2497 36.25 21.2497H28C27.8011 21.2497 27.6103 21.1706 27.4696 21.03C27.329 20.8893 27.25 20.6986 27.25 20.4997ZM36.25 24.2497H28C27.8011 24.2497 27.6103 24.3287 27.4696 24.4693C27.329 24.61 27.25 24.8007 27.25 24.9997C27.25 25.1986 27.329 25.3893 27.4696 25.53C27.6103 25.6706 27.8011 25.7497 28 25.7497H36.25C36.4489 25.7497 36.6396 25.6706 36.7803 25.53C36.9209 25.3893 37 25.1986 37 24.9997C37 24.8007 36.9209 24.61 36.7803 24.4693C36.6396 24.3287 36.4489 24.2497 36.25 24.2497ZM36.25 28.7497H30.25C30.0511 28.7497 29.8603 28.8287 29.7196 28.9693C29.579 29.11 29.5 29.3007 29.5 29.4997C29.5 29.6986 29.579 29.8893 29.7196 30.03C29.8603 30.1706 30.0511 30.2497 30.25 30.2497H36.25C36.4489 30.2497 36.6396 30.1706 36.7803 30.03C36.9209 29.8893 37 29.6986 37 29.4997C37 29.3007 36.9209 29.11 36.7803 28.9693C36.6396 28.8287 36.4489 28.7497 36.25 28.7497ZM27.2265 30.8122C27.251 30.9076 27.2565 31.0069 27.2427 31.1044C27.2288 31.2019 27.1958 31.2958 27.1457 31.3806C27.0955 31.4654 27.0292 31.5395 26.9504 31.5986C26.8716 31.6578 26.7819 31.7008 26.6865 31.7253C26.6254 31.7417 26.5623 31.7499 26.499 31.7497C26.3327 31.7497 26.171 31.6945 26.0395 31.5927C25.908 31.4909 25.814 31.3482 25.7725 31.1872C25.195 28.9428 22.9281 27.2497 20.499 27.2497C18.07 27.2497 15.8031 28.9418 15.2256 31.1872C15.1759 31.3799 15.0516 31.5449 14.8802 31.646C14.7088 31.7471 14.5042 31.7759 14.3115 31.7262C14.1188 31.6765 13.9538 31.5522 13.8527 31.3808C13.7516 31.2094 13.7227 31.0049 13.7725 30.8122C14.2965 28.7768 15.82 27.1287 17.7531 26.3122C17.0087 25.7388 16.4625 24.9469 16.191 24.0475C15.9195 23.148 15.9363 22.1861 16.2392 21.2967C16.542 20.4073 17.1156 19.635 17.8795 19.0881C18.6435 18.5411 19.5595 18.2471 20.499 18.2471C21.4386 18.2471 22.3546 18.5411 23.1185 19.0881C23.8825 19.635 24.4561 20.4073 24.7589 21.2967C25.0617 22.1861 25.0785 23.148 24.807 24.0475C24.5355 24.9469 23.9893 25.7388 23.245 26.3122C25.179 27.1287 26.7025 28.7768 27.2265 30.8122ZM20.5 25.7497C21.0933 25.7497 21.6733 25.5737 22.1667 25.2441C22.66 24.9144 23.0445 24.4459 23.2716 23.8977C23.4987 23.3495 23.5581 22.7463 23.4423 22.1644C23.3266 21.5824 23.0408 21.0479 22.6213 20.6283C22.2017 20.2088 21.6672 19.9231 21.0852 19.8073C20.5033 19.6915 19.9001 19.751 19.3519 19.978C18.8037 20.2051 18.3352 20.5896 18.0056 21.0829C17.6759 21.5763 17.5 22.1563 17.5 22.7497C17.5 23.5453 17.816 24.3084 18.3786 24.871C18.9413 25.4336 19.7043 25.7497 20.5 25.7497Z"
+                                                    fill="#111111" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_32_700">
+                                                    <rect width="24" height="24" fill="white"
+                                                        transform="translate(13 13)" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-end gap-2">
+                                    <span class="db-number lh-1">145</span>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="db-pill dbp-danger">
+                                            <span class="db-arrow">
+                                                <svg width="23" height="24" viewBox="0 0 23 24" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M10.4929 9.6184C10.4258 9.6167 10.3597 9.6015 10.2985 9.57371C10.2374 9.54591 10.1825 9.50609 10.1371 9.45662C10.0917 9.40715 10.0568 9.34904 10.0343 9.28576C10.0118 9.22248 10.0024 9.15532 10.0064 9.0883C10.0105 9.02128 10.028 8.95576 10.058 8.89565C10.0879 8.83555 10.1296 8.78209 10.1807 8.73847C10.2317 8.69484 10.291 8.66194 10.355 8.64174C10.4191 8.62153 10.4865 8.61443 10.5534 8.62085L14.3177 8.84908C14.4499 8.85718 14.5736 8.91744 14.6614 9.01663C14.7493 9.11582 14.7942 9.24583 14.7862 9.37809L14.558 13.1424C14.5563 13.2095 14.5411 13.2756 14.5133 13.3368C14.4855 13.3979 14.4457 13.4528 14.3962 13.4982C14.3467 13.5436 14.2886 13.5785 14.2254 13.601C14.1621 13.6234 14.0949 13.6329 14.0279 13.6289C13.9609 13.6248 13.8954 13.6073 13.8353 13.5773C13.7751 13.5474 13.7217 13.5057 13.6781 13.4546C13.6344 13.4036 13.6015 13.3443 13.5813 13.2803C13.5611 13.2162 13.554 13.1488 13.5604 13.0819L13.7156 10.5222L8.87967 14.8053C8.7804 14.8932 8.65026 14.9381 8.5179 14.9301C8.38553 14.9221 8.26178 14.8618 8.17386 14.7625C8.08593 14.6632 8.04105 14.5331 8.04907 14.4007C8.0571 14.2684 8.11738 14.1446 8.21665 14.0567L13.0526 9.77359L10.4929 9.6184Z"
+                                                        fill="#D41515" />
+                                                </svg>
+                                            </span>
+                                            <span class="dbp-text">1.5</span>
+                                        </div>
+                                        <span class="lh-sm db-small">Durchschnitt pro Spiel</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-12 pb-4">
+                            <div class="d-box h-100 d-flex flex-column gap-4 justify-content-between">
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-0 db-text">Prozentualer Anteil</p>
+                                    <span class="db-svg">
+                                        <svg width="51" height="50" viewBox="0 0 51 50" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.171387" width="49.8853" height="50" rx="24.9427"
+                                                fill="#F1F1F1" />
+                                            <path
+                                                d="M22.968 22.8544L22.614 22.5004M27.618 27.5044L27.264 27.1504M22.614 27.5004L27.614 22.5004M22.827 16.6404C23.408 16.1454 23.699 15.8974 24.003 15.7524C24.35 15.5869 24.7295 15.501 25.114 15.501C25.4984 15.501 25.878 15.5869 26.225 15.7524C26.529 15.8974 26.82 16.1454 27.401 16.6404C28 17.1504 28.608 17.4084 29.408 17.4714C30.169 17.5324 30.55 17.5634 30.868 17.6754C31.602 17.9354 32.18 18.5124 32.439 19.2474C32.551 19.5644 32.582 19.9454 32.643 20.7074C32.706 21.5074 32.963 22.1144 33.473 22.7134C33.969 23.2944 34.217 23.5854 34.362 23.8894C34.698 24.5924 34.698 25.4094 34.362 26.1114C34.217 26.4154 33.969 26.7064 33.474 27.2874C32.9784 27.8435 32.6855 28.5508 32.643 29.2944C32.582 30.0554 32.551 30.4364 32.439 30.7544C32.3106 31.1169 32.1028 31.4461 31.8308 31.7179C31.5588 31.9897 31.2295 32.1973 30.867 32.3254C30.55 32.4374 30.169 32.4684 29.407 32.5294C28.607 32.5924 28 32.8494 27.401 33.3594C26.82 33.8554 26.529 34.1034 26.225 34.2484C25.878 34.414 25.4984 34.4999 25.114 34.4999C24.7295 34.4999 24.35 34.414 24.003 34.2484C23.699 34.1034 23.408 33.8554 22.827 33.3604C22.2709 32.8649 21.5636 32.572 20.82 32.5294C20.059 32.4684 19.678 32.4374 19.36 32.3254C18.9975 32.197 18.6683 31.9893 18.3965 31.7173C18.1247 31.4453 17.9171 31.116 17.789 30.7534C17.677 30.4364 17.646 30.0554 17.585 29.2934C17.5425 28.5503 17.25 27.8434 16.755 27.2874C16.259 26.7064 16.011 26.4154 15.865 26.1114C15.6996 25.7644 15.6138 25.3848 15.614 25.0003C15.6142 24.6159 15.7003 24.2363 15.866 23.8894C16.011 23.5854 16.259 23.2944 16.754 22.7134C17.274 22.1024 17.523 21.4904 17.585 20.7064C17.646 19.9454 17.677 19.5644 17.789 19.2464C17.9174 18.884 18.1252 18.5548 18.3971 18.283C18.6691 18.0112 18.9984 17.8036 19.361 17.6754C19.678 17.5634 20.059 17.5324 20.821 17.4714C21.5641 17.4289 22.2711 17.1354 22.827 16.6404Z"
+                                                stroke="#111111" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-end gap-2">
+                                    <span class="db-number lh-1">20,7 %</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <div class="row gap-xl-0 gap-4">
+                            <div class="col-xl-6">
+                                <div class="chart-box d-flex flex-column gap-5">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-final fw-semibold cb-title">Anzahl Spiele je Club</span>
+                                        <select name="" id="" class="s2">
+                                            <option value="Daily">Daily</option>
+                                            <option value="Weekly">Weekly</option>
+                                            <option value="Monthly">Monthly</option>
+                                        </select>
+                                    </div>
+                                    <canvas id="myBarChart" class="bar-chart"></canvas>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="chart-box d-flex flex-column gap-5">
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-final fw-semibold cb-title">Statistik</span>
+                                        <select name="" id="" class="s2">
+                                            <option value="1st jan - 05 feb">1st jan - 05 feb</option>
+                                            <option value="Last Month">Last Month</option>
+                                            <option value="Last Year">Last Year</option>
+                                        </select>
+                                    </div>
+                                    <canvas id="myDonutChart" class="donut-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <div class="modal fade" id="settingsPopup" tabindex="-1" aria-labelledby="settingsPopupLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content flex-row">
+                    <div class="d-flex w-100 flex-lg-row flex-column">
+                        <div class="sidebar">    
+                            <div class="d-flex flex-column gap-1">
+                                <h2 class="mb-0 fw-semibold text-final page-title">Einstellungen</h2>
+                                <p class="mb-0 text-secondary page-desc">Ändern Sie hier Ihr Passwort</p>
+                            </div>
+                        </div>
+                        <div class="sp-main p-4 flex-grow-1">
+                            <form action="" method="post" class="h-100 d-flex flex-column gap-5 justify-content-between">
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="fw-semibold text-final p-2 sp-title mb-0">
+                                            Sicherheit
+                                        </h4>
+                                        <span class="cursor-pointer"  data-bs-dismiss="modal">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6668 16.6663L3.3335 3.33301M16.6668 3.33301L3.3335 16.6663" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="p-2">
+                                        <div class="border"></div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 mt-3">
+                                        <p class="mb-0 fw-semibold text-final">Passwort ändern</p>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="aktuelles Passwort eingeben" class="form-control sp-inp inp">
+                                        </div>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="neues Passwort eingeben" class="form-control sp-inp inp">
+                                        </div>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="neues Passwort wiederholen" class="form-control sp-inp inp">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 justify-content-end">
+                                    <button type="button" class="btn btn-primary-outline fb-btn sp-btn" data-bs-dismiss="modal">Abbrechen</button>
+                                    <button type="button" class="btn btn-primary fb-btn sp-btn" data-bs-dismiss="modal">Aktualisieren</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./assets/js/jquery-3.7.1.min.js"></script>
+        <script src="./assets/js/bootstrap.bundle.min.js"></script>
+        <script src="./assets/js/jquery-ui.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="./assets/js/select2.min.js"></script>
+        <script src="./assets/js/custom.js?v=2"></script>
+        <script>
+            $(document).ready(function () {
+                var ctx = $("#myBarChart")[0].getContext("2d");
+        
+                var dataValues = [50, 40, 20, 5, 40, 10, 15]; 
+                var labels = ["Ruhpolding", "Chieming", "Reit im Winkl", "Höslwang", "BGL", "Achental", "Maxlrain"];
+        
+                var myBarChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Values",
+                            data: dataValues,
+                            backgroundColor: "#AEBF52", // Filled bar color
+                            borderColor: "#AEBF52",
+                            borderWidth: 1,
+                            barPercentage: 0.5, // Adjust width
+                            categoryPercentage: 1.0, // Full width within category
+                            borderRadius: { topLeft: 10, topRight: 10 } // Rounded top corners
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                ticks: { color: "#000" }, // X-axis text color
+                                grid: { display: false }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                ticks: { stepSize: 10, color: "#000" }, // Y-axis step size
+                                grid: { color: "#F2F5F7" } // Background grid color
+                            }
+                        },
+                        plugins: {
+                            legend: { display: false } // Hide legend
+                        }
+                    }
+                });
+            });
+
+            $(document).ready(function () {
+                var ctx = $("#myDonutChart")[0].getContext("2d");
+        
+                var labels = ["Maxlrain", "Ruhpolding", "Achental", "Chieming", "BGL", "Reit im Winkl", "Höslwang"];
+                var dataValues = [13.5, 25.2, 9, 19.8, 20, 7.2, 8.2];
+        
+                var colors = ["#F76C6C", "#4B96D1", "#F68282", "#88BEE9", "#E6FF9F", "#AEBF52","#97C9F2"];
+        
+                var myDonutChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: dataValues,
+                            backgroundColor: colors,
+                            borderWidth: 2,
+                            borderColor: "#fff"
+                        }]
+                    },
+                    options: {
+                        responsive: false, // Fixed size
+                        maintainAspectRatio: false,
+                        cutout: 200, // Inner circle cutout size
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: "bottom", // Move legend below the chart
+                                labels: {
+                                    font: {
+                                        size: 14, // Bigger font size
+                                        weight: 'medium'
+                                    },
+                                    boxWidth: 20, // Bigger legend box size
+                                    padding: 15 // Extra spacing
+                                }
+                            }
+                        }
+                    }
+                });
+            });    
+        </script>
+    </body>
+
+</html>

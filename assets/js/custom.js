@@ -11,4 +11,14 @@ $(document).ready(function() {
             $(this).prev('.datepicker').datepicker("show");
         })
     })
+
+    $('.s2').select2({
+        minimumResultsForSearch: Infinity,
+        dropdownCssClass: 's2-dropdown',
+        containerCssClass: 's2-container'
+      });
 });
+
+function showPopup(popupId) {
+    $('#'+popupId).modal('show');
+}
