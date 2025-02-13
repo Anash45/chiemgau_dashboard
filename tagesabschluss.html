@@ -47,7 +47,7 @@
                         </div>
                         <!-- Right: User Info -->
                         <div class="d-flex align-items-center gap-2 ms-xl-0 ms-auto order-xl-3 order-2">
-                            <a href="#">
+                            <span onclick="showPopup('settingsPopup')">
                                 <svg width="28" height="29" viewBox="0 0 28 29" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -59,7 +59,7 @@
                                         stroke="#111111" stroke-width="1.5" stroke-miterlimit="10"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
-                            </a>
+                            </span>
                             <a href="#" class="user-info d-flex align-items-center ms-1 gap-2">
                                 <img src="./assets/img/user-img.png" alt="User" class="ui-img flex-shrink-0">
                                 <div class="ms-1 d-lg-block d-none">
@@ -144,6 +144,56 @@
                 </div>
             </section>
         </main>
+        
+        <div class="modal fade" id="settingsPopup" tabindex="-1" aria-labelledby="settingsPopupLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content flex-row">
+                    <div class="d-flex w-100 flex-lg-row flex-column">
+                        <div class="sidebar">    
+                            <div class="d-flex flex-column gap-1">
+                                <h2 class="mb-0 fw-semibold text-final page-title">Einstellungen</h2>
+                                <p class="mb-0 text-secondary page-desc">Ändern Sie hier Ihr Passwort</p>
+                            </div>
+                        </div>
+                        <div class="sp-main p-4 flex-grow-1">
+                            <form action="" method="post" class="h-100 d-flex flex-column gap-5 justify-content-between">
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="fw-semibold text-final p-2 sp-title mb-0">
+                                            Sicherheit
+                                        </h4>
+                                        <span class="cursor-pointer"  data-bs-dismiss="modal">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M16.6668 16.6663L3.3335 3.33301M16.6668 3.33301L3.3335 16.6663" stroke="#111111" stroke-width="2" stroke-linecap="round"/>
+                                            </svg>
+                                        </span>
+                                    </div>
+                                    <div class="p-2">
+                                        <div class="border"></div>
+                                    </div>
+                                    <div class="d-flex flex-column gap-3 mt-3">
+                                        <p class="mb-0 fw-semibold text-final">Passwort ändern</p>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="aktuelles Passwort eingeben" class="form-control sp-inp inp">
+                                        </div>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="neues Passwort eingeben" class="form-control sp-inp inp">
+                                        </div>
+                                        <div class="form-group col-xl-8">
+                                            <input type="password" placeholder="neues Passwort wiederholen" class="form-control sp-inp inp">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 justify-content-end">
+                                    <button type="button" class="btn btn-primary-outline fb-btn sp-btn" data-bs-dismiss="modal">Abbrechen</button>
+                                    <button type="button" class="btn btn-primary fb-btn sp-btn" data-bs-dismiss="modal">Aktualisieren</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="./assets/js/jquery-3.7.1.min.js"></script>
         <script src="./assets/js/bootstrap.bundle.min.js"></script>
         <script src="./assets/js/jquery-ui.js"></script>

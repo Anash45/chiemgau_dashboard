@@ -201,7 +201,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-6">
-                                <div class="chart-box d-flex flex-column gap-5">
+                                <div class="chart-box d-flex flex-column gap-5 justify-content-between h-100">
                                     <div class="d-flex justify-content-between">
                                         <span class="text-final fw-semibold cb-title">Statistik</span>
                                         <select name="" id="" class="s2">
@@ -210,7 +210,9 @@
                                             <option value="Last Year">Last Year</option>
                                         </select>
                                     </div>
-                                    <canvas id="myDonutChart" class="donut-chart"></canvas>
+                                    <div class="donut-cont">
+                                        <canvas id="myDonutChart" class="donut-chart"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -337,16 +339,16 @@
                         }]
                     },
                     options: {
-                        responsive: false, // Fixed size
+                        responsive: true, // Ensures fixed size
                         maintainAspectRatio: false,
-                        cutout: 200, // Inner circle cutout size
+                        cutout: 90, // Inner circle cutout size
                         plugins: {
                             legend: {
                                 display: true,
-                                position: "bottom", // Move legend below the chart
+                                position: "bottom",
                                 labels: {
                                     font: {
-                                        size: 14, // Bigger font size
+                                        size: 16, // Bigger font size
                                         weight: 'medium'
                                     },
                                     boxWidth: 20, // Bigger legend box size
